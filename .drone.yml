@@ -21,7 +21,7 @@ pipeline:
     image: appleboy/drone-git-push
     force: true
     branch: gh-pages
-    remote: git@github.com:/Presslabs/react-particles-icons.git
+    remote: git@github.com:/Presslabs/vue-particles-icons.git
     secrets:
       - GIT_PUSH_SSH_KEY
     commit_message: "Update static page"
