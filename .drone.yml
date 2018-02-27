@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: node:6.7
+    image: node:8.9.4
     pull: true
     commands:
       - make build
