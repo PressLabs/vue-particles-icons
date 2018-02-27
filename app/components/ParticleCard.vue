@@ -6,8 +6,6 @@
     <a href="#" @click.prevent="next" class="nav next">
       <particle>arrow_e</particle>
     </a>
-
-
     <a href="#" @click.prevent="toggleDark" class="action dark">
       <particle :particle="dark ? 'lightbulb_on' : 'lightbulb_off'"></particle>
     </a>
