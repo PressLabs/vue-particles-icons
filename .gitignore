@@ -57,3 +57,14 @@ typings/
 # dotenv environment variables file
 .env
 
+
+/node_modules
+/demo
+/publish
+/lib
+npm-debug.log
+secure.yml
+/docs/index.html
+.env
+/particles
+.DS_Store
