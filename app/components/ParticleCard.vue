@@ -46,17 +46,17 @@
       </tr>
     </table>
 
-    <!-- <particle-svg :size="256" :dark="dark" :particle="particle"></particle-svg> -->
     <h4>Usage</h4>
-    <pre><code>import Particle from 'react-particles-icons'
+    <pre><code>&lt;template&gt;
+  &lt;particle name="{{ particle.liga }}"&gt;&lt;/particle&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import Particle from 'vue-particles-icons'
 
-const Demo = () => {
-  return (
-    &lt;Particle name="{{ particle.liga }}" /&gt;
-  )
+export default {
+  components: { Particle }
 }
-
-export default Demo
+&lt;/script&gt;
 
 </code></pre>
   </div>
