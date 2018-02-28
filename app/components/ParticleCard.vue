@@ -1,31 +1,31 @@
 <template>
   <div class="particle-card" :class="{ dark }">
     <a href="#" @click.prevent="prev" class="nav prev">
-      <particle>arrow_w</particle>
+      <particle :size="24" name="arrow_w"></particle>
     </a>
     <a href="#" @click.prevent="next" class="nav next">
-      <particle>arrow_e</particle>
+      <particle :size="24" name="arrow_e"></particle>
     </a>
     <a href="#" @click.prevent="toggleDark" class="action dark">
-      <particle :particle="dark ? 'lightbulb_on' : 'lightbulb_off'"></particle>
+      <particle :size="24" :name="dark ? 'lightbulb_off' : 'lightbulb_on'"></particle>
     </a>
     <a href="#" @click.prevent="closeCard" class="action close">
-      <particle>delete</particle>
+      <particle :size="24" name="delete"></particle>
     </a>
     <h2><small>Particle name:</small>{{ camelCase(particle.liga) }}</h2>
     <table>
       <tr class="icons">
         <td>
-          <particle class="zoom-1x">{{ particle.liga }}</particle>
+          <particle :size="16" :name="particle.liga"></particle>
         </td>
         <td>
-          <particle class="zoom-2x">{{ particle.liga }}</particle>
+          <particle :size="32" :name="particle.liga"></particle>
         </td>
         <td>
-          <particle class="zoom-4x">{{ particle.liga }}</particle>
+          <particle :size="64" :name="particle.liga"></particle>
         </td>
         <td>
-          <particle class="zoom-8x">{{ particle.liga }}</particle>
+          <particle :size="96" :name="particle.liga"></particle>
         </td>
       </tr>
       <tr class="sizes">
@@ -61,7 +61,8 @@ export default {
 </template>
 
 <script>
-import Particle from './Particle'
+import Particle from '../../particles/particle'
+import ParticleIcon from './ParticleIcon'
 import ParticleSvg from './ParticleSvg'
 import { camelCase } from 'lodash'
 
@@ -86,7 +87,7 @@ export default {
       this.$emit('prev');
     },
   },
-  components: { Particle, ParticleSvg }
+  components: { ParticleIcon, ParticleSvg, Particle }
 }
 </script>
 
@@ -118,7 +119,7 @@ export default {
   }
   .icons td {
     vertical-align: bottom;
-    i {
+    svg {
       border: 1px solid rgba($gray-4, .2);
     }
   }

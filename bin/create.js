@@ -67,8 +67,8 @@ glob(path.join(rootDir, `${PARTICLES_PATH}/*.svg`), (err, icons) => {
     fill="currentColor"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 64 64"
-    :height="computedSize"
-    :width="computedSize"
+    :height="size"
+    :width="size"
     :style="{ verticalAlign: 'middle' }"
   >
     <path :d="particleData" />
@@ -89,13 +89,13 @@ glob(path.join(rootDir, `${PARTICLES_PATH}/*.svg`), (err, icons) => {
         default: 24
       }
     },
-    data: function() {
-      if (typeof (iconsData[this.name]) == "undefined") {
-        console.error('Particle not found! Particle content must be a string and not contain any other HTML tags')
-      }
-      return {
-        computedSize: this.size,
-        particleData: iconsData[this.name]
+    computed: {
+      particleData: function() {
+        const name = this.name.replace(/_/g, '-')
+        if (typeof (iconsData[name]) == "undefined") {
+          console.error('Particle not found! Particle content must be a string and not contain any other HTML tags')
+        }
+        return iconsData[name]
       }
     },
   }

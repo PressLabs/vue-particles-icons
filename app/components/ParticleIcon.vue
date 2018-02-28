@@ -1,14 +1,19 @@
 <template>
   <div @click="handleClick">
-    <particle>{{ particle.liga }}</particle>
+    <particle :size="size" :name="particleName"></particle>
   </div>
 </template>
 
 <script>
-import Particle from './Particle'
+import Particle from '../../particles/particle'
 
 export default {
   props: ['particle', 'size'],
+  data: function() {
+    return {
+      particleName: this.particle.liga
+    }
+  },
   methods: {
   	handleClick() {
     	this.$emit('click')

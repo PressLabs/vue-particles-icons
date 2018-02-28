@@ -1,6 +1,6 @@
 {
   "name": "vue-particles-icons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set of SVG Icons from Presslabs to use with VueJS components",
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js",
