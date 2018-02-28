@@ -36,8 +36,7 @@ pipeline:
       branch: master
 
   build-docs:
-    image: jobandtalent/mkdocs
-    group: build
+    image: alpine:3.7
     commands:
       - mkdir -p /drone/src/presslabs-org/wp-content/root/vue-particles-icon/
       - rm -rf /drone/src/presslabs-org/wp-content/root/vue-particles-icon/*
