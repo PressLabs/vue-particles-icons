@@ -35,7 +35,7 @@ pipeline:
     when:
       branch: master
 
-  build-docs:
+  copy-demo:
     image: alpine:3.7
     commands:
       - mkdir -p /drone/src/presslabs-org/wp-content/root/vue-particles-icons/
@@ -50,7 +50,7 @@ pipeline:
     group: publish
     commit: true
     path: /drone/src/presslabs-org
-    commit_message: "[docs] Update vue-particles-icons demo"
+    commit_message: "[demo] Update vue-particles-icons demo"
     remote: git@github.com:/Presslabs/presslabs-org.git
     secrets:
       - GIT_PUSH_SSH_KEY

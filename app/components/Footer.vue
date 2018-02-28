@@ -33,7 +33,7 @@
           <li><a href="https://github.com/presslabs"><particle>github</particle></a></li>
           <li><a href="https://www.linkedin.com/company-beta/2188682/"><particle>linkedin</particle></a></li>
           <li><a href="https://profiles.wordpress.org/presslabs/"><particle>wordpress</particle></a></li>
-          <li><a href="https://www.xing.com/companies/presslabs/"><particle>xing</particle></li>
+          <li><a href="https://www.xing.com/companies/presslabs/"><particle>xing</particle></a></li>
         </ul>
       </div>
     </div>
