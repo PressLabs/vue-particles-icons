@@ -3,7 +3,7 @@
     <div class="topbar">
       <div class="bar-section branding">
         <a href="#">
-          <particle :class="[ 'logo' ]">particles_alt</particle> VueJS Particles Icons
+          <particle-component :class="[ 'logo' ]">particles_alt</particle-component> VueJS Particles Icons
         </a>
       </div>
       <div class="bar-section input-wrapper search">
@@ -31,17 +31,17 @@
         ></particleCard>
       </div>
     </div>
-    <app-footer></app-footer>
+    <particle name="add"></particle>
   </div>
 </template>
 
 <script>
-import particlesData from 'presslabs-particles-icons/dist/icons/particles.json'
 import Particles from './components/Particles'
 import ParticleCard from './components/ParticleCard'
 import ParticleIcon from './components/ParticleIcon'
-import Particle from './components/Particle'
+import ParticleComponent from './components/Particle'
 import AppFooter from './components/Footer'
+import particlesData from 'presslabs-particles-icons/dist/icons/particles.json'
 
 export default {
   data: function () {
@@ -90,7 +90,7 @@ export default {
       })
     },
   },
-  components: { Particle, ParticleIcon, Particles, ParticleCard, AppFooter }
+  components: { ParticleComponent, ParticleIcon, Particles, ParticleCard, AppFooter }
 }
 </script>
 
@@ -99,7 +99,7 @@ export default {
 @import "./components/colors";
 
 $particles-font-path: "~presslabs-particles-icons/dist/fonts/" !default;
-@import "~presslabs-particles-icons/dist/css/particles";
+@import "~presslabs-particles-icons";
 
 #app {
   font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;

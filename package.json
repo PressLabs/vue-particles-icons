@@ -1,16 +1,17 @@
 {
   "name": "vue-particles-icons",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A set of SVG Icons from Presslabs to use with VueJS components",
   "scripts": {
+    "prepublish": "del-cli particles && babel-node ./bin/create.js",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "rm -rf ./particles && node ./bin/create",
+    "build": "del-cli particles && babel-node ./bin/create.js",
     "demo": "webpack --config webpack.prod.js",
     "lint": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PressLabs/react-particles-icons.git"
+    "url": "git+https://github.com/PressLabs/vue-particles-icons.git"
   },
   "keywords": [
     "react",
@@ -19,12 +20,16 @@
     "svg"
   ],
   "main": "particles/index.js",
+  "files": [
+    "particles",
+    "LICENSE-MIT"
+  ],
   "author": "Presslabs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PressLabs/react-particles-icons/issues"
+    "url": "https://github.com/PressLabs/vue-particles-icons/issues"
   },
-  "homepage": "https://github.com/PressLabs/react-particles-icons#readme",
+  "homepage": "https://github.com/PressLabs/vue-particles-icons#readme",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
@@ -39,6 +44,7 @@
     "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
+    "del-cli": "^1.1.0",
     "dotenv": "^5.0.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -50,25 +56,23 @@
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
+    "lodash": "^4.17.4",
     "node-sass": "^4.7.2",
     "paper-jsdom": "^0.11.5",
     "path": "^0.12.7",
     "prettier": "^1.10.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "vue": "^2.5.13",
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1",
     "webpack-px-to-rem": "^0.1.1"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "glob": "^7.1.2",
-    "lodash": "^4.17.4",
-    "presslabs-particles-icons": "^2.0.5",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "vue": "^2.5.13",
-    "webpack": "^3.10.0",
-    "webpack-merge": "^4.1.1"
+    "presslabs-particles-icons": "^3.1.1"
   }
 }

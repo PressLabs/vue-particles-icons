@@ -1,31 +1,31 @@
 <template>
   <div class="particle-card" :class="{ dark }">
     <a href="#" @click.prevent="prev" class="nav prev">
-      <particle :size="24" name="arrow_w"></particle>
+      <particle>arrow_w</particle>
     </a>
     <a href="#" @click.prevent="next" class="nav next">
-      <particle :size="24" name="arrow_e"></particle>
+      <particle>arrow_e</particle>
     </a>
     <a href="#" @click.prevent="toggleDark" class="action dark">
-      <particle :size="24" :name="dark ? 'lightbulb_off' : 'lightbulb_on'"></particle>
+      <particle :particle="dark ? 'lightbulb_on' : 'lightbulb_off'"></particle>
     </a>
     <a href="#" @click.prevent="closeCard" class="action close">
-      <particle :size="24" name="delete"></particle>
+      <particle>delete</particle>
     </a>
-    <h2><small>Particle name:</small>{{ camelCase(particle.liga) }}</h2>
+    <h2><small>Particle name:</small>{{ className(particle.liga) }}</h2>
     <table>
       <tr class="icons">
         <td>
-          <particle :size="16" :name="particle.liga"></particle>
+          <particle class="zoom-1x">{{ particle.liga }}</particle>
         </td>
         <td>
-          <particle :size="32" :name="particle.liga"></particle>
+          <particle class="zoom-2x">{{ particle.liga }}</particle>
         </td>
         <td>
-          <particle :size="64" :name="particle.liga"></particle>
+          <particle class="zoom-4x">{{ particle.liga }}</particle>
         </td>
         <td>
-          <particle :size="96" :name="particle.liga"></particle>
+          <particle class="zoom-8x">{{ particle.liga }}</particle>
         </td>
       </tr>
       <tr class="sizes">
@@ -43,16 +43,17 @@
         </td>
       </tr>
     </table>
-
     <h4>Usage</h4>
     <pre><code>&lt;template&gt;
   &lt;particle name="{{ particle.liga }}"&gt;&lt;/particle&gt;
+  &lt;{{ particle.name }}-icon&gt;&lt;/{{ particle.name }}-icon&gt;
 &lt;/template&gt;
 &lt;script&gt;
-import Particle from 'vue-particles-icons'
+import Particle from 'vue-particles-icons/particle'
+import {{ className(particle.liga) }} from 'vue-particles-icons/{{ particle.name }}'
 
 export default {
-  components: { Particle }
+  components: { Particle, {{ className(particle.liga) }} }
 }
 &lt;/script&gt;
 
@@ -61,16 +62,22 @@ export default {
 </template>
 
 <script>
-import Particle from '../../particles/particle'
-import ParticleIcon from './ParticleIcon'
+import Particle from './Particle'
 import ParticleSvg from './ParticleSvg'
-import { camelCase } from 'lodash'
+import { startCase } from 'lodash'
 
 export default {
   props: ['particle', 'dark'],
   data () {
     return {
-      camelCase,
+      className: particle => {
+        const cName = particle.replace(/_\w/g, m => {
+          const n = m.toUpperCase()
+          return n[1]
+        })
+
+        return `${startCase(cName).replace(/ /g, '')}Icon`
+      }
     }
   },
   methods: {
@@ -87,7 +94,7 @@ export default {
       this.$emit('prev');
     },
   },
-  components: { ParticleIcon, ParticleSvg, Particle }
+  components: { Particle, ParticleSvg }
 }
 </script>
 
@@ -119,7 +126,7 @@ export default {
   }
   .icons td {
     vertical-align: bottom;
-    svg {
+    i {
       border: 1px solid rgba($gray-4, .2);
     }
   }
@@ -143,12 +150,6 @@ export default {
     code {
       color: $teal-1;
     }
-  }
-  table {
-    width: 100%;
-  }
-  pre code {
-    font-size: 12px !important;
   }
   .next, .prev, .close, .dark {
     position: absolute;
