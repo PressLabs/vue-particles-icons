@@ -49,8 +49,7 @@
   &lt;{{ particle.name }}-icon&gt;&lt;/{{ particle.name }}-icon&gt;
 &lt;/template&gt;
 &lt;script&gt;
-import Particle from 'vue-particles-icons/particle'
-import {{ className(particle.liga) }} from 'vue-particles-icons/{{ particle.name }}'
+import { Particle, {{ className(particle.liga) }} } from 'vue-particles-icons'
 
 export default {
   components: { Particle, {{ className(particle.liga) }} }
