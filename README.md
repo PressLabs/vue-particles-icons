@@ -13,7 +13,7 @@ Import individual icon
   <add-icon></add-icon>
 </template>
 <script>
-import AddIcon from 'vue-particles-icons/add'
+import { AddIcon } from 'vue-particles-icons'
 
 export default {
   components: { AddIcon }
@@ -28,7 +28,7 @@ or as single component with name attribute
   <particle name="add"></particle>
 </template>
 <script>
-import Particle from 'vue-particles-icons/particle'
+import { Particle } from 'vue-particles-icons'
 
 export default {
   components: { Particle }
