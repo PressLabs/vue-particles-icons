@@ -1,6 +1,6 @@
 {
   "name": "vue-particles-icons",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A set of SVG Icons from Presslabs to use with VueJS components",
   "scripts": {
     "prepublish": "del-cli particles && babel-node ./bin/create.js",

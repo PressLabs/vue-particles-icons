@@ -110,13 +110,20 @@ fs.writeFileSync(
   'utf-8',
 )
 
-const imports = _.map(
+const allImports = _.map(
   components,
-  component => `export ${component.name} from './${component.file}'`,
+  component => `import ${component.name} from './${component.file}'`,
 )
-imports.push("export Particle from './particle'")
+allImports.push("import Particle from './particle'")
+allImports.push('')
+allImports.push('export {')
+const allExports = _.map(components, component => `  ${component.name},`)
+const all = allImports.concat(allExports)
+all.push('  Particle')
+all.push('}')
+
 fs.writeFileSync(
   path.join(rootDir, DEST_FOLDER, 'index.js'),
-  `${imports.join('\n')}\n`,
+  `${all.join('\n')}\n`,
   'utf-8',
 )
