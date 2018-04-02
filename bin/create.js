@@ -20,7 +20,7 @@ _.map(particles, (icon, key) => {
   })
 
   const name = `${_.startCase(className).replace(/ /g, '')}Icon`
-  const iconSvg = `<path d="${icon[0]}" transform="matrix(1 0 0 -1 0 512)" />`
+  const iconSvg = `<path d="${icon[0]}" />`
 
   const component = `<template>
 <svg
@@ -73,7 +73,7 @@ const component = `<template>
   :width="size"
   :style="{ verticalAlign: 'middle' }"
 >
-  <path :d="particleData" transform="matrix(1 0 0 -1 0 512)" />
+  <path :d="particleData" />
 </svg>
 </template>
 <script>
